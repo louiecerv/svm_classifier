@@ -32,6 +32,15 @@ st.sidebar.header("Model Hyperparameters")
 C = st.sidebar.slider("Regularization (C)", 0.01, 10.0, 1.0)
 epsilon = st.sidebar.slider("Epsilon", 0.01, 1.0, 0.1)
 
+# Display Scatter Plot of Data
+st.subheader("Dataset Scatter Plot")
+fig, ax = plt.subplots()
+scatter = ax.scatter(X[:, 0], X[:, 1], c=y, cmap='viridis', edgecolors='k')
+ax.set_xlabel("Feature 1")
+ax.set_ylabel("Feature 2")
+ax.set_title("Business Data Classification")
+st.pyplot(fig)
+
 # Tabs for different kernel types
 tab1, tab2, tab3 = st.tabs(["Linear Kernel", "Polynomial Kernel", "RBF Kernel"])
 
